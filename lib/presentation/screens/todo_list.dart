@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_task/business_logic/cubit/to_do_cubit.dart';
 
+import '../../business_logic/cubit/to_do_cubit.dart';
 import '../../constants/size_config.dart';
 import '../widgets/todo_view.dart';
 import 'add_todo.dart';
@@ -24,7 +24,7 @@ class ToDoList extends StatelessWidget {
       ),
       backgroundColor: Colors.black,
       appBar: AppBar(
-backgroundColor: Colors.black,
+        backgroundColor: Colors.black,
 
         elevation: .8,
         title: Text(
@@ -50,6 +50,7 @@ backgroundColor: Colors.black,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
+                    mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListView.separated (

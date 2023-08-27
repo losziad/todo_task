@@ -6,7 +6,7 @@ import '../../models/entities/todo_model.dart';
 import '../screens/todo_details.dart';
 
 class TodoView extends StatelessWidget {
-  ToDoModel todo;
+  final ToDoModel todo;
 
   TodoView({required this.todo});
 
@@ -56,6 +56,7 @@ class TodoView extends StatelessWidget {
           Padding(
             padding:  EdgeInsets.only(left: 8*SizeConfig.horizontalBlock),
             child: ElevatedButton(onPressed: (){
+
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TodoDetails(
                 todo: todo,
 

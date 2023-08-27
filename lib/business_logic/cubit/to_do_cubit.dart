@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:todo_task/constants/end_point.dart';
 import 'package:http/http.dart' as http;
 
 import '../../models/entities/todo_model.dart';
@@ -23,6 +23,9 @@ class ToDoCubit extends Cubit<ToDoStates> {
     try {
       emit(ToDoLoadingState());
       tasks = await NotesLogic.getNotes();
+
+
+
       List <ToDoModel> unCompletedTasks = tasks.where((element) => element.completed == false).toList();
       List <ToDoModel> completedTasks = tasks.where((element) => element.completed == true).toList();
       emit(ToDoSuccessState(unCompletedTasks,completedTasks));
@@ -56,6 +59,7 @@ class ToDoCubit extends Cubit<ToDoStates> {
   Future<void> addTodo(String text) async{
     try {
       emit(ToDoLoadingState());
+
 
       await NotesLogic.addNotes(text);
       emit(TodoAddSuccessState());

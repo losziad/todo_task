@@ -43,7 +43,6 @@ class NotesLogic{
     try{
       final url = BASE_URL+ EndPointGetAndPost+'/${toDoModel.id}';
       final body = {
-
         "title": toDoModel.title,
         "completed": toDoModel.completed,
       };
@@ -57,6 +56,7 @@ class NotesLogic{
   static addNotes(String text)async {
     try{
       final url = BASE_URL+ EndPointGetAndPost;
+      print(text);
       final body = {
         "title": text,
       };
